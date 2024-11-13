@@ -1,17 +1,15 @@
 import React from 'react'
 import GlobalStyle from './Styles/global';
 import RoutesApp from './routes';
+import { AuthProvider  } from './contexts/auth';
 
 const App = () => {
   return (
-    <>
-    <div>App</div>
+    <AuthProvider>
     <RoutesApp />
-    <GlobalStyle />
-        
-    </>
-    
+    <GlobalStyle /> 
+    </AuthProvider>
   );
-}
+};
 
 export default App
