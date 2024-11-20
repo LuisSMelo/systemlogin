@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "../Pages/Home";
 import Signin from "../Pages/Signin";
@@ -14,14 +14,14 @@ const Private = ({ Item }) => {
 const RoutesApp = () => {
     return (
         <BrowserRouter>
-        <Fragment>
+          <Fragment>
             <Routes>
                 <Route exact path="/home" element={<Private Item={Home} />} />
                 <Route path="/" element={<Signin />} />
                 <Route exact path="/signup" element={<Signup />} />
                 <Route path="*" element={<Signin />} />
             </Routes>
-        </Fragment>
+          </Fragment>
         </BrowserRouter>
     );
 };

@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import Input from "../../components/input";
 import Button from "../../components/button";
 import * as C from "./styles";
-import { Link, useNavigate } from "react-router-dom";
+import {Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 const navigate = useNavigate();
 
@@ -34,7 +34,28 @@ const Signup = () => {
   const [emailConf, setEmailConf] = useState ("");
   const [senha, setSenha] = useState ("");
   const [error, setError] = useState ("");
+  const navigate = useNavigate();
 
+  const { signup } = useAuth();
+
+  const handleSignup = () => {
+    if (!email | !emailConf | !senha) {
+      setError("Preencha todos os campos");
+      return;
+    } else if (email !== emailConf) {
+      setError("Os e-mails não são iguais");
+      return;
+    };
+    const res = signup(email, senha);
+
+    if (res) {
+      setError(res);
+      return;
+    };
+
+    alert("Usuário cadastrado com sucesso!");
+    navigate("/");
+  };
 
   return (
     <C.Container>

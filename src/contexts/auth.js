@@ -71,5 +71,5 @@ export const AuthProvider = ({ children }) => {
         </AuthContext.Provider>
     );  
     
-    return <AuthContext.Provider>{children}</AuthContext.Provider>;
+    
 };
